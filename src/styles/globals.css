@@ -43,3 +43,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.res-nav{
+  background-color: rgba(0, 0, 0, 0.7);
+}

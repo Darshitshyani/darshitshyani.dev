@@ -20,13 +20,21 @@ import h3 from "../images/hotel/h3.jpeg";
 import p1 from "../images/pet shop/p1.jpeg";
 import p2 from "../images/pet shop/p2.jpeg";
 import p3 from "../images/pet shop/p3.jpeg";
+import useInView from "./animations";
 
 const projects = [
   {
     name: "VIZU admin-panel",
-    description:
-      "The application leverages a powerful and modern technology stack, including Next.js, TypeScript, Material-UI, Tailwind CSS, Supabase, Redux Toolkit (Redux-Slice), Context API, and custom hooks.The Vizu Admin Panel is a powerful management tool designed to streamline administrative tasks and efficiently manage various aspects of an application. Built with Supabase for secure authentication, it ensures a safe environment for administrative operations. The panel enables administrators to seamlessly create, update, and delete categories and fields, simplifying application management.",
+
     images: [a1, a2, a3, a4, a5],
+    description: [
+      "Streamlines administrative tasks",
+      "Efficiently manages various aspects of the application",
+      "Secure authentication with Supabase",
+      "Safe environment for administrative operations",
+      "CRUD (Create, Read, Update, Delete) functionality for categories and fields",
+      "Simplified application management",
+    ],
     tech: [
       {
         title: "Next.js",
@@ -87,8 +95,13 @@ const projects = [
         icon: <SiFirebase />,
       },
     ],
-    description:
-      "In this project, my role as a Frontend Developer involved designing and implementing user-friendly interfaces to ensure a seamless user experience. I was responsible for handling the frontend logic, including state management, API integration, and dynamic rendering of components. My work also included optimizing performance, minimizing load times, and ensuring efficient use of resources. I collaborated closely with the backend team to integrate APIs effectively and maintain a smooth data flow between the client and server. ",
+    description: [
+      "Designing and implementing user-friendly interfaces to ensure a seamless user experience",
+      "Handling frontend logic, including state management, API integration, and dynamic rendering of components",
+      "Optimizing performance, minimizing load times, and ensuring efficient use of resources",
+      "Collaborating closely with the backend team to integrate APIs effectively",
+      "Maintaining a smooth data flow between the client and server",
+    ],
   },
   {
     name: "Hotel Booking Site",
@@ -97,6 +110,14 @@ const projects = [
       {
         title: "React",
         icon: <SiReact />,
+      },
+      {
+        title: "TypeScript",
+        icon: <SiTypescript />,
+      },
+      {
+        title: "Material-UI",
+        icon: "",
       },
       {
         title: "Tailwind ",
@@ -111,11 +132,17 @@ const projects = [
         icon: <SiFirebase />,
       },
     ],
-    description:
-      "In this project, as a Frontend Developer, I utilized React, Tailwind CSS, React-Hook-Form, and Redux to build a dynamic and responsive user interface. My responsibilities included implementing frontend logic, managing state efficiently with Redux, and ensuring seamless form handling with React-Hook-Form. I focused on delivering a visually appealing, performant, and user-friendly experience.",
+    description: [
+      "Utilized React, Tailwind CSS, React-Hook-Form, and Redux to build a dynamic and responsive user interface",
+      "Implemented frontend logic and managed state efficiently with Redux",
+      "Ensured seamless form handling with React-Hook-Form",
+      "Focused on delivering a visually appealing, performant, and user-friendly experience",
+      "Collaborated with team members to ensure code consistency and application scalability",
+    ],
   },
 ];
 export default function Projects() {
+  const [ref, isInView] = useInView(0.2);
   const settings = {
     infinite: true, // Infinite loop
     speed: 1000, // Transition speed
@@ -126,7 +153,7 @@ export default function Projects() {
     arrows: false,
   };
   return (
-    <section id="projects" className="py-16  text-text px-8">
+    <section id="projects" className="py-16  text-text px-8" ref={ref}>
       <h2 className="text-3xl font-bold text-primary mb-8">Projects</h2>
       <div className="grid gap-8 md:grid-cols-2 grid-cols-1  lg-grid-cols-3 xl:grid-cols-3">
         {projects.map((project, index) => (
@@ -139,7 +166,7 @@ export default function Projects() {
                 {project.name}
               </h3>
             </div>
-            <div className="mt-4 border-2 rounded-lg border-primary p-2 ">
+            <div className="mt-4 border-2 rounded-lg border-primary p-2 min-h-[200px] min-w-[250px]">
               <Slider {...settings}>
                 {project.images.map((img) => (
                   <>
@@ -147,15 +174,34 @@ export default function Projects() {
                       <Image
                         src={img}
                         alt="Slide 1"
-                        className=" rounded-lg p-1"
+                        className=" rounded-lg p-1 min-h-[200px] min-w-[250px]"
                       />
                     </div>
                   </>
                 ))}
               </Slider>
             </div>
-            <div className=" mt-[20px]">
-              <p>{project.description}</p>
+            <div className="mt-[20px]">
+              <ul
+                className={`space-y-4 list-none animate-fade-in  ${
+                  isInView ? "animate-slide-in" : "opacity-0"
+                }`}
+              >
+                {project.description.map((val) => {
+                  return (
+                    <>
+                      <li
+                        className={`flex items-start gap-2  ${
+                          isInView ? "animate-slide-in" : "opacity-0"
+                        } `}
+                      >
+                        <span className="text-primary font-bold">➤</span>
+                        <p>{val}</p>
+                      </li>
+                    </>
+                  );
+                })}
+              </ul>
             </div>
             <div className=" grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-5">
               {project.tech.map((teches, index) => (
