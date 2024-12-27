@@ -2,20 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+        .gradient-div {
+     
+          background: linear-gradient(180deg, #000000, #0a0768);
+          background-size: 200% 100%;
+          animation: gradientShift 1s infinite alternate;
+        }
+    
+        @keyframes gradientShift {
+          0% {
+            background-position: 0% 0%;
+          }
+    
+          100% {
+            background-position: 100% 0%;
+          }
+        }
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Track */
+::-webkit-scrollbar-track {
+  background:#0c164c !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#64ffda;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
