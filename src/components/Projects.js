@@ -207,7 +207,9 @@ export default function Projects() {
               {project.tech.map((teches, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-2 font-semibold border border-primary rounded-lg p-2"
+                  className={`${
+                    isInView ? "animate-slide-in" : "opacity-0"
+                  } flex items-center gap-2 font-semibold border border-primary rounded-lg p-2`}
                 >
                   {teches.icon}
                   <p>{teches.title}</p>
