@@ -159,7 +159,10 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="p-4 border-2 bg-opacity-70 bg-background border-primary rounded-lg shadow-lg flex flex-col  h-full"
+            className={`${
+              isInView ? "animate-fade-in" : "opacity-0"
+            }  p-4 border-2 bg-opacity-70 bg-background border-primary rounded-lg shadow-lg flex 
+             flex-col  h-full`}
           >
             <div className="border-b pb-4 border-primary">
               <h3 className="text-xl font-bold text-primary ">
