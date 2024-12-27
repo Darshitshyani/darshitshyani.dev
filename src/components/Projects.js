@@ -159,9 +159,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`${
-              isInView ? "animate-fade-in" : "opacity-0"
-            }  p-4 border-2 bg-opacity-70 bg-background border-primary rounded-lg shadow-lg flex 
+            className={` p-4 border-2 bg-opacity-70 bg-background border-primary rounded-lg shadow-lg flex 
              flex-col  h-full`}
           >
             <div className="border-b pb-4 border-primary">
@@ -185,19 +183,11 @@ export default function Projects() {
               </Slider>
             </div>
             <div className="mt-[20px]">
-              <ul
-                className={`space-y-4 list-none animate-fade-in  ${
-                  isInView ? "animate-slide-in" : "opacity-0"
-                }`}
-              >
+              <ul className={`space-y-4 list-none animate-fade-in `}>
                 {project.description.map((val) => {
                   return (
                     <>
-                      <li
-                        className={`flex items-start gap-2  ${
-                          isInView ? "animate-slide-in" : "opacity-0"
-                        } `}
-                      >
+                      <li className={`flex items-start gap-2   `}>
                         <span className="text-primary font-bold">➤</span>
                         <p>{val}</p>
                       </li>
@@ -210,9 +200,7 @@ export default function Projects() {
               {project.tech.map((teches, index) => (
                 <li
                   key={index}
-                  className={`${
-                    isInView ? "animate-slide-in" : "opacity-0"
-                  } flex items-center gap-2 font-semibold border border-primary rounded-lg p-2`}
+                  className={`flex items-center gap-2 font-semibold border border-primary rounded-lg p-2`}
                 >
                   {teches.icon}
                   <p>{teches.title}</p>
