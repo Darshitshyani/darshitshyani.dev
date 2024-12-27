@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Profile from "../images/profile.jpg";
+import Profile from "../images/profile.webp";
 import useInView from "./animations";
 
 export default function Hero() {
@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="xl:h-[calc(100vh-80px)]  h-full flex items-center justify-around px-8 flex-wrap-reverse"
+      className="xl:h-[calc(100vh-80px)]  h-full flex items-center justify-around px-8 flex-wrap"
     >
       <div
         ref={ref}
@@ -94,16 +94,8 @@ export default function Hero() {
           Learn More
         </a>
       </div>
-      <div
-        className={`flex items-center mt-10 justify-center border-2 border-spacing-4 rounded-full  p-1 border-blue-500   ${
-          isInView ? "animate-slide-in" : "opacity-0"
-        }`}
-      >
-        <Image
-          src={Profile}
-          alt="Darshit Shyani"
-          className={`w-72 h-72  rounded-full shadow-lg `}
-        />
+      <div className={`flex items-center mt-10 justify-center   `}>
+        <Image src={Profile} alt="Darshit Shyani" />
       </div>
     </section>
   );
