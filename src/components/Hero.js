@@ -7,11 +7,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="xl:h-[calc(100vh-80px)]  h-full flex items-center justify-around px-8 flex-wrap"
+      className="xl:h-[calc(100vh-80px)]  h-full grid grid-cols-1  px-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  items-center  mx-auto "
     >
       <div
         ref={ref}
-        className={`flex flex-col justify-start items-start  ${
+        className={`flex flex-col justify-start items-start mx-auto ${
           isInView ? "animate-fade-in" : "opacity-0"
         }`}
       >
@@ -94,7 +94,7 @@ export default function Hero() {
           Learn More
         </a>
       </div>
-      <div className={`flex items-center mt-10 justify-center   `}>
+      <div className={` mt-10 mx-auto`}>
         <Image src={Profile} alt="Darshit Shyani" />
       </div>
     </section>
